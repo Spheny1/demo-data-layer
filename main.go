@@ -48,7 +48,7 @@ func addcount(w http.ResponseWriter, req *http.Request){
 	for rows.Next() {
        		rows.Scan(&id ,&num)
    	}
-	updateSQL := "UPDATE count_" + deploymentName + " SET num = " + strconv.Itoa(num + 1) + " WHERE idCount = " + strconv.Itoa(id) + ";"
+	updateSQL := "UPDATE count_" + deploymentName + " SET num = " + strconv.Itoa(num + 3) + " WHERE idCount = " + strconv.Itoa(id) + ";"
 	statement, err := DB.Prepare(updateSQL) 
 	if err != nil {
 		log.Fatal(err.Error())
