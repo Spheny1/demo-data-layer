@@ -68,7 +68,7 @@ func main(){
 		panic(err)
 	}
 	//Setup db
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s sslmode=disable","localhost", postgresPort, "postgres", "mysecretpassword")
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s sslmode=disable",postgres, postgresPort, "postgres", "mysecretpassword")
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
   		panic(err)
