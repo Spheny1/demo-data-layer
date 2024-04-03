@@ -62,7 +62,6 @@ func main(){
 	postgres = os.Getenv("POSTGRES")
 	deploymentName = os.Getenv("DEPLOYMENT_NAME")
 	postgresPort := 5432
-	myURI = os.Getenv("MY_URI")
 	//Setup service discovery
 	log.Println("registering service at " + serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
 	_, err := http.Get(serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
@@ -104,5 +103,5 @@ func main(){
 	http.HandleFunc("/count", getcount)
 	http.HandleFunc("/addcount", addcount)
 	log.Print("running server")
-	log.Print(http.ListenAndServe("0.0.0.0:8080", nil))
+	log.Print(http.ListenAndServe("0.0.0.0:8083", nil))
 }
