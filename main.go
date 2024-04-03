@@ -14,7 +14,6 @@ import (
 //Below is grabbed form env variables set from spinnaker deployment
 var serviceDiscovery string;
 var postgres string;
-var myURI string;
 var deploymentName string;
 var DB *sql.DB;
 func getcount(w http.ResponseWriter, req *http.Request){
@@ -63,8 +62,8 @@ func main(){
 	deploymentName = os.Getenv("DEPLOYMENT_NAME")
 	postgresPort := 5432
 	//Setup service discovery
-	log.Println("registering service at " + serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
-	_, err := http.Get(serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
+	log.Println("registering service at " + serviceDiscovery + "/register?name=" + deploymentName)
+	_, err := http.Get(serviceDiscovery + "/register?name=" + deploymentName)
 	if err != nil {
 		panic(err)
 	}
