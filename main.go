@@ -63,7 +63,7 @@ func main(){
 	deploymentName = os.Getenv("DEPLOYMENT_NAME")
 	postgresPort := 5432
 	//Setup service discovery
-	log.Println("registering service at " + serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
+	log.Println("registering service at " + serviceDiscovery + "/register?name=" + deploymentName)
 	_, err := http.Get(serviceDiscovery + "/register?ip=" + myURI + "&name=" + deploymentName)
 	if err != nil {
 		panic(err)
