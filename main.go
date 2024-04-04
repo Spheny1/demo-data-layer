@@ -102,5 +102,5 @@ func main(){
 	http.HandleFunc("/count", getcount)
 	http.HandleFunc("/addcount", addcount)
 	log.Print("running server")
-	log.Print(http.ListenAndServe("0.0.0.0:8083", nil))
+	log.Print(http.ListenAndServe("0.0.0.0:8080", nil))
 }
